@@ -1,0 +1,90 @@
+.section
+{
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+}
+
+.welcome-section
+{
+    height: 90vh;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Comfortaa";
+    text-align: center;
+}
+.welcome-img
+{
+    width: 30%;
+    height: 100%;
+    background-image: url(./images/welcome.jpg);
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+.welcome-text-c
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 0 7px 7px 0 rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+.welcome-title
+{
+    font-size: 35px;
+    font-weight: bolder;
+    margin: auto;
+}
+.welcome-text
+{
+    width: 70%;
+    max-width: 70%;
+    text-align: justify;
+    text-indent: 15px;
+    font-size: 18px;
+    margin: auto;
+}
+.welcome-direct-c
+{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    margin: auto;
+}
+.welcome-direct
+{
+    border-radius: 7.5px;
+    border: 2px #a431dd solid;
+    padding: 7.5px 12.5px;
+    font-size: 21px;
+    color: #a431dd;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.25);
+    transition: 0.2s ease-in-out;
+}
+.welcome-direct:hover
+{
+    background-color: rgba(255, 255, 255, 0.70);
+}
+
+.devby
+{
+    color: gray;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    margin-top: auto;
+    margin-bottom: 5px;
+}

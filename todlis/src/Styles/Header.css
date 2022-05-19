@@ -1,0 +1,31 @@
+.header
+{
+    width: 100%;
+    height: 10vh;
+    position: relative;
+    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #a431dd, #6d006d);
+    z-index: 2;
+}
+
+.header-title
+{
+    margin: auto;
+    font-size: 35px;
+    font-family: "Poppins", Arial;
+    font-weight: lighter;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.header-title img
+{
+    width: 30px;
+    height: 35px;
+}

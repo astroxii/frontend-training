@@ -1,0 +1,121 @@
+.sidenav
+{
+    height: 90vh;
+    width: 300px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #a431dd;
+    box-shadow: 0 7.5px 7.5px 0 rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: width 0.3s ease-in-out;
+}
+
+.closed
+{
+    width: 100px;
+}
+
+.toggle-sidenav
+{
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 55px;
+    margin-top: 25px;
+    background-color: transparent;
+}
+.toggle-sidenav::before
+{
+    content: '';
+    position: absolute;
+    width: 7.5px;
+    height: 35px;
+    background-color: white;
+    transform: rotate(45deg);
+    transition: transform 0.15s ease-in-out;
+    margin-bottom: 20px;
+}
+.closed .toggle-sidenav::before
+{
+    transform: rotate(-45deg);
+}
+.toggle-sidenav::after
+{
+    content: '';
+    position: absolute;
+    width: 7.5px;
+    height: 35px;
+    background-color: white;
+    transform: rotate(-45deg);
+    transition: transform 0.15s ease-in-out;
+    margin-top: 20px;
+}
+.closed .toggle-sidenav::after
+{
+    transform: rotate(45deg);
+}
+
+.sidenav-nav
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 25px;
+}
+
+.subview-list
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.subview-list li
+{
+    width: 100%;
+}
+.subview-btn img, .settings-btn img
+{
+    width: 30px;
+    height: auto;
+}
+.subview-btn, .settings-btn
+{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-size: 22.5px;
+    font-weight: normal;
+    padding: 20px 0;
+    border: none;
+    border-left: 5px solid transparent;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.active
+{
+    border-left-color: white !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.subview-btn:hover, .settings-btn:hover
+{
+    background-color: rgba(255, 255, 255, 0.15);
+}
+.closed .subview-name
+{
+    display: none;
+}
