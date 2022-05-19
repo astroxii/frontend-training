@@ -1,9 +1,9 @@
 import { useState } from "react";
-import "../Styles/Todos.css";
+import "../Styles/Home.css";
 import Sidenav from "./Subcomponents/Sidenav";
 import Welcome from "./Subcomponents/Welcome";
 
-export default function Todos(props)
+export default function Home(props)
 {
     const [subView, setSubView] = useState(props.view.split(".")[1]);
 

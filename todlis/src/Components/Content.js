@@ -1,5 +1,5 @@
 import Initial from "./Initial";
-import Todos from "./Todos";
+import Home from "./Home";
 
 export default function Content(props)
 {
@@ -9,8 +9,8 @@ export default function Content(props)
                 props.view === "Initial" ?
                 <Initial view={props.view} setView={props.setView}/>
                 :
-                props.view.split(".")[0] === "Todos" ?
-                <Todos view={props.view} setView={props.setView}/>
+                props.view.split(".")[0] === "Home" ?
+                <Home view={props.view} setView={props.setView}/>
                 :
                 null
             }

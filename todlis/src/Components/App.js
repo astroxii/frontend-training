@@ -5,12 +5,12 @@ import Header from './Header';
 
 export default function App(props)
 {
-  const [view, setView] = useState(JSON.parse(localStorage.getItem("isUser")) ? "Todos.Welcome" : "Initial");
+  const [view, setView] = useState(JSON.parse(localStorage.getItem("isUser")) ? "Home.Welcome" : "Initial");
 
   return(
     <Fragment>
       <Header />
-      <Content view={view} setView={setView}/>
+      <Content view={view} setView={setView} />
     </Fragment>
   );
 }

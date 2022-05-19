@@ -10,7 +10,8 @@
 
 .username-warn
 {
-    background-color: rgba(16, 175, 214, 0.247);
+    background-color: rgba(200, 0, 226, 0.1);
+    border: thin solid #a431dd;
     width: 70%;
     padding: 5px 10px;
     margin-bottom: 20px;

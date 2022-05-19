@@ -10,7 +10,7 @@
     background-color: #a431dd;
     box-shadow: 0 7.5px 7.5px 0 rgba(0, 0, 0, 0.5);
     z-index: 1;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
 
 .closed
@@ -96,7 +96,7 @@
     align-items: center;
     justify-content: center;
     gap: 25px;
-    font-size: 22.5px;
+    font-size: 20px;
     font-weight: normal;
     padding: 20px 0;
     border: none;
@@ -115,7 +115,23 @@
 {
     background-color: rgba(255, 255, 255, 0.15);
 }
+.subview-name
+{
+    animation: showName 0.5s ease-in-out;
+}
 .closed .subview-name
 {
     display: none;
+}
+
+@keyframes showName
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+    }
 }
