@@ -1,16 +1,16 @@
 import Initial from "./Initial";
 import Home from "./Home";
 
-export default function Content(props)
+export default function Content({user, setUser, view, setView})
 {
     return(
         <main className="content" id="content">
             {
-                props.view === "Initial" ?
-                <Initial view={props.view} setView={props.setView}/>
+                view.trim() === "Initial" ?
+                <Initial user={user} setUser={setUser} view={view} setView={setView} />
                 :
-                props.view.split(".")[0] === "Home" ?
-                <Home view={props.view} setView={props.setView}/>
+                view.trim().split(".")[0] === "Home" ?
+                <Home user={user} setUser={setUser} view={view} setView={setView} />
                 :
                 null
             }

@@ -49,3 +49,15 @@ a, li, ul, button
   text-decoration: none;
   outline: none;
 }
+
+@keyframes opacity
+{
+  from
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
+}

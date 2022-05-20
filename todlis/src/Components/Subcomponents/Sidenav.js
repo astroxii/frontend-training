@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import "../../Styles/Sidenav.css";
 
-export default function Sidenav({subView, setSubView})
+export default function Sidenav({user, setUser, subView, setSubView})
 {
     useEffect(() =>
     {
@@ -14,8 +14,8 @@ export default function Sidenav({subView, setSubView})
     }, [subView]);
 
     return(
-        <aside className="sidenav">
-            <button title="Expand/Collapse" type="button" onClick={(e) => e.target.parentElement.classList.toggle("closed")} className="toggle-sidenav"></button>
+        <aside className={`sidenav ${!user?.preferences || user?.preferences?.sidenav ? null : "closed"}`}>
+            <button title="Expand/Collapse" type="button" onClick={(e) => sidenavShowState(e.target.parentElement, user, setUser)} className="toggle-sidenav"></button>
             <nav className="sidenav-nav">
                 <ul className="subview-list">
                     <li className="subview-select"><button onClick={() => subView !== "Welcome" ? setSubView("Welcome") : null} id="Welcome" type="button" className="subview-btn"><img alt="" src={`/project/todlis/images/welcome_icon.png`}/><span className="subview-name">Welcome</span></button></li>
@@ -27,4 +27,10 @@ export default function Sidenav({subView, setSubView})
             <button type="button" className="settings-btn"><img alt="" src={`/project/todlis/images/settings_icon.png`}/><span className="subview-name">Settings</span></button>
         </aside>
     );
+}
+
+function sidenavShowState(sn, user, setUser)
+{
+    setUser({...user, preferences: {...user.preferences, sidenav: !user.preferences.sidenav}});
+    sn.classList.toggle("closed");
 }
