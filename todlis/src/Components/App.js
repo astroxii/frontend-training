@@ -6,15 +6,12 @@ import Header from './Header';
 export default function App(props)
 {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("User")) || null);
-  const [view, setView] = useState(user ? "Home.Welcome" : "Initial");
-
+  const [view, setView] = useState(user ? `Home.${user.preferences.startView}` : "Initial");
   
   useEffect(() =>
   {
     localStorage.setItem("User", JSON.stringify(user));
   }, [user]);
-
-  if(user?.isNew) {setUser({...user, isNew: false});} // FIX, SETUP WON'T SHOW
   
   return(
     <Fragment>

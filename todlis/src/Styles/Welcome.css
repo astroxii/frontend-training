@@ -1,13 +1,3 @@
-.setup
-{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-}
-
 .username-warn
 {
     background-color: rgba(200, 0, 226, 0.1);

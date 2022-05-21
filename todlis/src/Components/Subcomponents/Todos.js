@@ -1,8 +1,8 @@
-export default function Reminders({user, setUser})
+export default function Todos({user, setUser})
 {
     return(
         <section className="subview">
-            Lembretes...
+            Listas...
         </section>
     );
 }

@@ -7,7 +7,7 @@ export default class User
         this.preferences = 
         {
             sidenav: true,
-            startScreen: "Welcome"
+            startView: "Welcome"
         };
         this.todos = [];
         this.reminders = [];

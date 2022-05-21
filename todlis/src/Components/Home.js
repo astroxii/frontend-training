@@ -13,7 +13,7 @@ export default function Home(props)
             <Sidenav user={props.user} setUser={props.setUser} subView={subView} setSubView={setSubView} />
             {
                 subView === "Welcome" ?
-                <Welcome user={props.user} />
+                <Welcome user={props.user} setUser={props.setUser} />
                 :
                 subView === "Recent" ?
                 <Recent />

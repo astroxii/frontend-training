@@ -1,25 +1,18 @@
 import "../../Styles/Welcome.css";
-import Setup from "./Setup";
 
-export default function Welcome(props)
+export default function Welcome({user, setUser})
 {
     //const [nameWarn, setNameWarn] = useState(!localStorage.getItem("Username") && !localStorage.getItem("Dismiss.Username"));
 
     return(
         <section className="subview">
-            <h2 className="subview-title">Welcome, <span className="username">{localStorage.getItem("Username") || "__User__"}</span>!</h2>
+            <h2 className="subview-title">Bem-Vindo&#x0028;a&#x0029;, <span className="username">{user?.username || "__User__"}</span>!</h2>
             {
-                true ?
+                !user?.username ?
                 <div className="username-warn">
-                        <p className="username-warn-text">First of all, you might have noticed the title calling you "__User__". You may change the name you wish to be referred as at any moment acessing <span className="setting-ref">Settings &gt; Personal</span> at the bottom of the left side navigation, unless you enjoy the current one.</p>
-                    <button type="button" onClick={() => {/* SET USER PREFS */}} className="username-warn-dismiss">Dismiss</button>
+                        <p className="username-warn-text">Antes de qualquer coisa, deves ter percebido o t&iacute;tulo chamando-te de "__User__". Tu podes mudar como prefere ser chamado em <span className="setting-ref">Configura&ccedil;&otilde;es &gt; Perfil</span>, no fim da navega&ccedil;&atilde;o do lado esquerdo, a n&atilde;o ser que prefira assim, claro.</p>
+                    <button type="button" onClick={() => {setUser({...user, username: "__User__"});}} className="username-warn-dismiss">Ignorar</button>
                 </div>
-                :
-                null
-            }
-            {
-                props.user?.isNew ? // No work
-                <Setup />
                 :
                 null
             }

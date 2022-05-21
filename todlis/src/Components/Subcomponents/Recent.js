@@ -4,7 +4,7 @@ export default function Recent(props)
 {
     return(
         <section className="subview">
-            Recent works
+            Listas e Lembretes recentes...
         </section>
     );
 }
