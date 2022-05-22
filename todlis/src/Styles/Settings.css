@@ -1,0 +1,37 @@
+.settings-title
+{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.settings-title-category
+{
+    color: gray;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 3px;
+    margin-bottom: auto;
+}
+
+.settings-categ-list
+{
+    margin: auto;
+}
+
+.settings-back-btn
+{
+    position: absolute;
+    margin-right: 500px;
+    margin-top: 25px;
+    background-color: transparent;
+    font-size: 50px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    cursor: pointer;
+}
