@@ -13,6 +13,12 @@ export default function Sidenav({user, setUser, subView, setSubView})
         document.getElementById(subView).classList.add("active");
     }, [subView]);
 
+    function sidenavShowState(sn)
+    {
+        setUser({...user, preferences: {...user.preferences, sidenav: !user.preferences.sidenav}});
+        sn.classList.toggle("closed");
+    }
+
     return(
         <aside className={`sidenav ${user?.preferences?.sidenav ? null : "closed"}`}>
             <button title="Expand/Collapse" type="button" onClick={(e) => sidenavShowState(e.target.parentElement, user, setUser)} className="toggle-sidenav"></button>
@@ -24,13 +30,7 @@ export default function Sidenav({user, setUser, subView, setSubView})
                     <li className="subview-select"><button onClick={() => subView !== "Reminders" ? setSubView("Reminders") : null} id="Reminders" type="button" className="subview-btn"><img alt="" src={`/project/todlis/images/reminders_icon.png`}/><span className="subview-name">Lembretes</span></button></li>
                 </ul>
             </nav>
-            <button type="button" className="settings-btn"><img alt="" src={`/project/todlis/images/settings_icon.png`}/><span className="subview-name">Configura&ccedil;&otilde;es</span></button>
+            <button onClick={() => subView !== "Settings" ? setSubView("Settings") : null} id="Settings" type="button" className="subview-btn"><img alt="" src={`/project/todlis/images/settings_icon.png`}/><span className="subview-name">Configura&ccedil;&otilde;es</span></button>
         </aside>
     );
-}
-
-function sidenavShowState(sn, user, setUser)
-{
-    setUser({...user, preferences: {...user.preferences, sidenav: !user.preferences.sidenav}});
-    sn.classList.toggle("closed");
 }

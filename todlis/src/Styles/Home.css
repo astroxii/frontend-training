@@ -21,7 +21,7 @@
 {
     font-size: 35px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 50px;
 }
 .subview-text
@@ -55,6 +55,8 @@
     user-select: none;
     background-color: white;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.25);
+    /* Make only for mobile use! */
+    display: none;
 }
 .action-button
 {
