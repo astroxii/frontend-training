@@ -1,7 +1,7 @@
-export default function Reminders({user, setUser})
+export default function Reminders({user, setUser, theme})
 {
     return(
-        <section className="subview">
+        <section className={`subview ${theme}-background`}>
             Lembretes...
         </section>
     );

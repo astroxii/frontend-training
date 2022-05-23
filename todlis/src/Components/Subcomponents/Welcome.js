@@ -1,11 +1,11 @@
 import "../../Styles/Welcome.css";
 
-export default function Welcome({user, setUser})
+export default function Welcome({user, setUser, theme})
 {
     //const [nameWarn, setNameWarn] = useState(!localStorage.getItem("Username") && !localStorage.getItem("Dismiss.Username"));
 
     return(
-        <section className="subview">
+        <section className={`subview ${theme}-background`}>
             <h2 className="subview-title">Como vai, <span className="username">{user?.username || "Visitante"}</span>?</h2>
             {
                 !user?.username ?

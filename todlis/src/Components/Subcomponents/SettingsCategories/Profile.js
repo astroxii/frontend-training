@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 
-export default function Profile({user, setUser, setCategory, username, setUsername})
+export default function Profile({user, setUser, setCategory, username, setUsername, startView, setStartView})
 {
     function edit(btn, field)
     {
@@ -10,17 +10,41 @@ export default function Profile({user, setUser, setCategory, username, setUserna
         }
     }
 
-    function handleChange(field, handler)
+    function handleChange(field, current, handler)
     {
-        if(username !== field.value)
+        if(field.type === "text")
         {
-            handler(field.value.length > 0 ? field.value : null);
+            if(current.trim() !== field.value.trim())
+            {
+                document.getElementById("settings-save").disabled = false;
+                handler(field.value.trim());
+            }
         }
     }
 
     function handleSave()
     {
-        // save the different from saved fields
+        document.getElementById("settings-save").disabled = true;
+
+        document.querySelectorAll(".settings-field").forEach((f) =>
+        {
+            if(f.type === "text")
+            {
+                f.readOnly = true;
+
+                if(f.value !== user[f.id] && f.value.length > 0)
+                {
+                    const tUser = {};
+                    Object.assign(tUser, user);
+                    tUser[f.id] = f.value; // needs to get deep props... not working for preferences
+                    setUser(tUser);
+                }
+                else
+                {
+                    f.value = user[f.id];
+                }
+            }
+        });
     }
 
     function handleCancel()
@@ -29,21 +53,25 @@ export default function Profile({user, setUser, setCategory, username, setUserna
 
         document.querySelectorAll(".settings-field").forEach((f) =>
         {
-            if(!f.readOnly || f.value !== user[f.id])
+            if(f.type === "text")
             {
-                f.value = user[f.id];
-                f.readOnly = true;
+                if(!f.readOnly || f.value !== user[f.id])
+                {
+                    f.value = user[f.id];
+                    f.readOnly = true;
+                }
             }
         });
     }
 
     useEffect(() =>
     {
-        // const sv = document.getElementById("settings-save");
-
-        // check if any of the fields differ
-
-    }, [username]);
+        if(username === user.username && startView === user.preferences.startView)
+        {
+            document.getElementById("settings-save").disabled = true;
+        }
+        console.log("when it calls???")
+    }, [user, username, startView]);
 
     return(
         <Fragment>
@@ -51,8 +79,8 @@ export default function Profile({user, setUser, setCategory, username, setUserna
             <button title="Voltar" type="button" onClick={() => {setCategory(null);}} className="settings-back-btn">&lt;</button>
             <form className="settings-edit-form">
                 <label className="setup-field-holder">
-                    <input onChange={(e) => {handleChange(e.target, setUsername);}} 
-                    type="text" placeholder="" value={username} id="username" className={`setup-field settings-field ${username ? "has-content" : null}`} 
+                    <input onChange={(e) => {handleChange(e.target, username, setUsername);}} 
+                    type="text" placeholder="" value={username} id="username" className="setup-field settings-field has-content"
                     autoComplete="false" autoCorrect="false" readOnly={true} />
                     <h3 className="setup-field-title">Nome de usu&aacute;rio</h3>
                     <button title="Editar" type="button" onClick={(e) => {edit(e.target, document.getElementById("username"))}}>E</button>

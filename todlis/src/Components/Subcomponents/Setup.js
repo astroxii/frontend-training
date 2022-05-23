@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../Styles/Setup.css";
 
-export default function Setup({user, setUser})
+export default function Setup({user, setUser, theme, setTheme})
 {
     const [username, setUsername] = useState(null);
 
@@ -26,7 +26,7 @@ export default function Setup({user, setUser})
 
     return(
         <div className="setup-pane">
-            <form className="setup-form">
+            <form className={`setup-form ${theme}-background`}>
                 <h2 className="setup-form-title">Configure seu <span className="todlis">todlis</span></h2>
                 <label className="setup-field-holder">
                     <input onChange={(e) => {setUsername(e.target.value.length > 0 ? e.target.value : null); e.target.value.length > 0 ? e.target.classList.add("has-content") : e.target.classList.remove("has-content")}} 

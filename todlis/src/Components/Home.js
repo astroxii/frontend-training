@@ -8,7 +8,7 @@ import Sidenav from "./Subcomponents/Sidenav";
 import Todos from "./Subcomponents/Todos";
 import Welcome from "./Subcomponents/Welcome";
 
-export default function Home({user, setUser, view, setView})
+export default function Home({user, setUser, theme, setTheme, view, setView})
 {
     const [subView, setSubView] = useState(view.split(".")[1]);
 
@@ -17,23 +17,23 @@ export default function Home({user, setUser, view, setView})
             <Sidenav user={user} setUser={setUser} subView={subView} setSubView={setSubView} />
             {
                 subView === "Welcome" ?
-                <Welcome user={user} setUser={setUser} />
+                <Welcome user={user} setUser={setUser} theme={theme} />
                 :
                 subView === "Recent" ?
-                <Recent user={user} setUser={setUser} />
+                <Recent user={user} setUser={setUser} theme={theme} />
                 :
                 subView === "Todos" ?
-                <Todos user={user} setUser={setUser} />
+                <Todos user={user} setUser={setUser} theme={theme} />
                 :
                 subView === "Reminders" ?
-                <Reminders user={user} setUser={setUser} />
+                <Reminders user={user} setUser={setUser} theme={theme} />
                 :
                 subView === "Settings" ?
-                <Settings user={user} setUser={setUser} />
+                <Settings user={user} setUser={setUser} theme={theme} setTheme={setTheme} />
                 :
                 null
             }
-            <Actions user={user} setUser={setUser} />
+            <Actions user={user} setUser={setUser} theme={theme} setTheme={setTheme} />
         </section>
     );
 }

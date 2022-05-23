@@ -1,7 +1,7 @@
-export default function Todos({user, setUser})
+export default function Todos({user, setUser, theme})
 {
     return(
-        <section className="subview">
+        <section className={`subview ${theme}-background`}>
             Listas...
         </section>
     );
