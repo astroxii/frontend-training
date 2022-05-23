@@ -17,7 +17,16 @@ export default function Settings({user, setUser})
                 :
                 <ul className="settings-categ-list">
                     <li><button onClick={() => {setCategory("Profile");}} type="button" className="settings-categ">Perfil</button></li>
+                    <li><button onClick={() => {setCategory("Accessibility");}} type="button" className="settings-categ">Acessibilidade</button></li>
                 </ul>
+            }
+            {
+                !category ?
+                <div className="settings-bottom">
+                    <p className="version">v1.0.0 05.2022</p>
+                </div>
+                :
+                null
             }
         </section>
     );

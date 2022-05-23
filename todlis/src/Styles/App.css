@@ -17,6 +17,11 @@ html, body, #root
   background-color: #ececec;
 }
 
+::selection
+{
+  background-color: #c44fff59;
+}
+
 .content
 {
   width: 100%;

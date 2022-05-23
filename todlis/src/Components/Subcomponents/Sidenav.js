@@ -21,7 +21,7 @@ export default function Sidenav({user, setUser, subView, setSubView})
 
     return(
         <aside className={`sidenav ${user?.preferences?.sidenav ? null : "closed"}`}>
-            <button title="Expand/Collapse" type="button" onClick={(e) => sidenavShowState(e.target.parentElement, user, setUser)} className="toggle-sidenav"></button>
+            <button title="Expandir/Recolher" type="button" onClick={(e) => sidenavShowState(e.target.parentElement, user, setUser)} className="toggle-sidenav"></button>
             <nav className="sidenav-nav">
                 <ul className="subview-list">
                     <li className="subview-select"><button onClick={() => subView !== "Welcome" ? setSubView("Welcome") : null} id="Welcome" type="button" className="subview-btn"><img alt="" src={`/project/todlis/images/welcome_icon.png`}/><span className="subview-name">Boas-Vindas</span></button></li>

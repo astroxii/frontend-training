@@ -30,7 +30,7 @@ export default function Setup({user, setUser})
                 <h2 className="setup-form-title">Configure seu <span className="todlis">todlis</span></h2>
                 <label className="setup-field-holder">
                     <input onChange={(e) => {setUsername(e.target.value.length > 0 ? e.target.value : null); e.target.value.length > 0 ? e.target.classList.add("has-content") : e.target.classList.remove("has-content")}} 
-                    type="text" placeholder="" id="username" className="setup-field" autoComplete="false" autoCorrect="false" />
+                    type="text" placeholder="" className="setup-field" autoComplete="false" autoCorrect="false" />
                     <h3 className="setup-field-title">Nome de usu&aacute;rio</h3>
                 </label>
                 <div className="setup-bottom">
