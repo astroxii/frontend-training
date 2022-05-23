@@ -2,8 +2,16 @@
 {
     background-color: #f7f7f7;
 }
-
 .dark-background
 {
     background-color: #4e4e4e;
+}
+
+.light-text
+{
+    color: black;
+}
+.dark-text
+{
+    color: #f7f7f7;
 }

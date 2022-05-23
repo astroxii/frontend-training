@@ -70,7 +70,6 @@ export default function Profile({user, setUser, setCategory, username, setUserna
         {
             document.getElementById("settings-save").disabled = true;
         }
-        console.log("when it calls???")
     }, [user, username, startView]);
 
     return(

@@ -10,7 +10,7 @@ export default function Settings({user, setUser, theme, setTheme})
 
     return(
         <section className={`subview ${theme}-background`}>
-            <h2 className="settings-title">Configura&ccedil;&otilde;es</h2>
+            <h2 className={`settings-title ${theme}-text`}>Configura&ccedil;&otilde;es</h2>
             {
                 category === "Profile" ?
                 <Profile user={user} setUser={setUser} setCategory={setCategory} username={username} setUsername={setUsername} startView={startView} setStartView={setStartView} />

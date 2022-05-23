@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useLayoutEffect, useState } from 'react';
 import '../Styles/App.css';
 import '../Styles/Themes.css';
 import Content from './Content';
@@ -14,6 +14,11 @@ export default function App(props)
   {
     localStorage.setItem("User", JSON.stringify(user));
   }, [user]);
+
+  useLayoutEffect(() =>
+  { 
+    document.body.classList.add(`${theme}-background`);
+  }, [theme]);
   
   return(
     <Fragment>

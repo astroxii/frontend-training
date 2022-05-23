@@ -6,7 +6,7 @@ export default function Welcome({user, setUser, theme})
 
     return(
         <section className={`subview ${theme}-background`}>
-            <h2 className="subview-title">Como vai, <span className="username">{user?.username || "Visitante"}</span>?</h2>
+            <h2 className={`subview-title ${theme}-text`}>Como vai, <span className="username">{user?.username || "Visitante"}</span>?</h2>
             {
                 !user?.username ?
                 <div className="username-warn">
