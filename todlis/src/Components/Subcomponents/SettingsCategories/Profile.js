@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 
-export default function Profile({user, setUser, setCategory, username, setUsername, startView, setStartView})
+export default function Profile({user, setUser, username, setUsername, startView, setStartView})
 {
     function edit(btn, field)
     {
@@ -75,7 +75,6 @@ export default function Profile({user, setUser, setCategory, username, setUserna
     return(
         <Fragment>
             <p className="settings-title-category">Perfil</p>
-            <button title="Voltar" type="button" onClick={() => {setCategory(null);}} className="settings-back-btn">&lt;</button>
             <form className="settings-edit-form">
                 <label className="setup-field-holder">
                     <input onChange={(e) => {handleChange(e.target, username, setUsername);}} 

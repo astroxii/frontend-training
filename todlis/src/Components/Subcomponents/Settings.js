@@ -11,13 +11,18 @@ export default function Settings({user, setUser, theme, setTheme})
     return(
         <section className={`subview ${theme}-background`}>
             <h2 className={`settings-title ${theme}-text`}>Configura&ccedil;&otilde;es</h2>
+            {   category ?
+                <button title="Voltar" type="button" onClick={() => {setCategory(null);}} className={`settings-back-btn ${theme}-text`}>&lt;</button>
+                :
+                null
+            }
             {
                 category === "Profile" ?
-                <Profile user={user} setUser={setUser} setCategory={setCategory} username={username} setUsername={setUsername} startView={startView} setStartView={setStartView} />
+                <Profile user={user} setUser={setUser} username={username} setUsername={setUsername} startView={startView} setStartView={setStartView} />
                 :
                 <ul className="settings-categ-list">
-                    <li><button onClick={() => {setCategory("Profile");}} type="button" className="settings-categ">Perfil</button></li>
-                    <li><button onClick={() => {setCategory("Accessibility");}} type="button" className="settings-categ">Acessibilidade</button></li>
+                    <li><button onClick={() => {setCategory("Profile");}} type="button" className={`settings-categ ${theme}-text`}>Perfil</button></li>
+                    <li><button onClick={() => {setCategory("Accessibility");}} type="button" className={`settings-categ ${theme}-text`}>Acessibilidade</button></li>
                 </ul>
             }
             {

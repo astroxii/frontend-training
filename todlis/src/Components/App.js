@@ -17,7 +17,9 @@ export default function App(props)
 
   useLayoutEffect(() =>
   { 
+    document.querySelector("html").classList.add(`${theme}-background`);
     document.body.classList.add(`${theme}-background`);
+    document.querySelector("#root").classList.add(`${theme}-background`);
   }, [theme]);
   
   return(
