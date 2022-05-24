@@ -16,11 +16,10 @@ export default function Sidenav({user, setUser, subView, setSubView})
     function sidenavShowState(sn)
     {
         setUser({...user, preferences: {...user.preferences, sidenav: !user.preferences.sidenav}});
-        sn.classList.toggle("closed");
     }
 
     return(
-        <aside className={`sidenav ${user?.preferences?.sidenav ? null : "closed"}`}>
+        <aside className={`sidenav${user?.preferences?.sidenav ? "" : " closed"}`}>
             <button title="Expandir/Recolher" type="button" onClick={(e) => sidenavShowState(e.target.parentElement, user, setUser)} className="toggle-sidenav"></button>
             <nav className="sidenav-nav">
                 <ul className="subview-list">

@@ -116,7 +116,7 @@
 }
 .subview-name
 {
-    animation: showName 0.5s ease-in-out;
+    animation: showName 1s ease-in-out;
 }
 .closed .subview-name
 {
