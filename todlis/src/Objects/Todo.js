@@ -1,9 +1,11 @@
 export default class Todo
 {
-    constructor(title = "", deadline)
+    constructor(title = "", color = "#c34bff")
     {
-        this.title = title || null;
+        this.title = title;
         this.start = new Date();
-        this.deadline = deadline;
+        this.deadline = new Date();
+        this.content = [];
+        this.color = color;
     }
 }

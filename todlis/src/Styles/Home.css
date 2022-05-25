@@ -39,9 +39,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
     padding: 20px 15px;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+    margin: auto;
 }
 .action-card
 {
@@ -102,4 +105,54 @@
     font-size: 30px;
     font-weight: lighter;
     cursor: pointer;
+}
+
+
+.edit-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+.edit-title
+{
+    width: 100%;
+    padding: 15px 5px;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    color: white;
+}
+.add-item-btn
+{   
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 0;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+
+.empty-text, .empty-list-text
+{
+    padding: 100px 0;
+    max-width: 90%;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.empty-text
+{
+    font-size: 30px;
+}
+.empty-list-text
+{
+    font-size: 17px;
 }
