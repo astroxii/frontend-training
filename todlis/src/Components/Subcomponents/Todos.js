@@ -4,7 +4,14 @@ import "../../Styles/Todos.css";
 
 export default function Todos({user, setUser, theme})
 {
-    const [newTodo, setNewTodo] = useState(null);
+    const [todo, setTodo] = useState(null);
+
+    function handleAdd()
+    {
+        const item = {description: `Tarefa #${todo.content.length + 1}`, priority: false, done: false};
+
+        setTodo({...todo, content: [...todo.content, item]});
+    }
 
     function handleCancel()
     {
@@ -18,12 +25,12 @@ export default function Todos({user, setUser, theme})
 
     return(
         <section className={`subview ${theme}-background`}>
-            <h2 className={`subview-title ${theme}-text`}>Listas de Tarefas{newTodo ? " - Editar" : null}</h2>
+            <h2 className={`subview-title ${theme}-text`}>Listas de Tarefas{todo ? " - Editar" : null}</h2>
             {
-                !newTodo ?
+                !todo ?
                 <Fragment>
                     <div className="subview-cards">
-                        <button onClick={() => {setNewTodo(new Todo(`NovaLista${user.todos.length+1}`));}} type="button" className={`action-card ${theme}-background-c`}>
+                        <button onClick={() => {setTodo(new Todo(`NovaLista${user.todos.length+1}`));}} type="button" className={`action-card ${theme}-background-c`}>
                             <span className={`action-icon ${theme}-text`}>+</span>
                             <h4 className={`action-title ${theme}-text`}>Criar Nova Lista</h4>
                         </button>
@@ -44,15 +51,21 @@ export default function Todos({user, setUser, theme})
                 </Fragment>
                 :
                 <Fragment>
-                    <div className={`edit-container ${theme}-background-c`} style={{border: `${newTodo.color} 3px solid`}}>
-                        <input type="text" maxLength={30} value={`${newTodo.title}`} onChange={(e) => {console.log(newTodo); setNewTodo({...newTodo, title: e.target.value});}} className="edit-title" style={{backgroundColor: `${newTodo.color}`}} />
-                        {   
-                            newTodo.content.length > 0 ?
-                            newTodo.content.map((t) => <div>ITEM</div>)
-                            :
-                            <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
-                        }
-                        <button className="add-item-btn" style={{backgroundColor: `${newTodo.color}`}}>Adicionar Tarefa</button>
+                    <div className={`edit-container ${theme}-background-c`} style={{border: `${todo.color} 3px solid`}}>
+                        <input type="text" maxLength={30} value={`${todo.title}`} onChange={(e) => {setTodo({...todo, title: e.target.value});}} className="edit-title" style={{backgroundColor: `${todo.color}`}} />
+                        <ul className="list">
+                            {   
+                                todo.content.length > 0 ?
+                                todo.content.map((t, i) => 
+                                <li className="list-item" key={`task-${i}`}>
+                                    <input type="checkbox" defaultChecked={t.done} onChange={(e) => {/* NOT WORKING FIX */}} className="task-done-check"/>
+                                    <p className={`task-description ${theme}-text`}>{t.description}</p>
+                                </li>)
+                                :
+                                <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
+                            }
+                        </ul>
+                        <button onClick={() => {handleAdd();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
                     </div>
                     <div className="setup-bottom">
                         <button onClick={() => {handleCancel();}} type="button" className="setup-button">Cancelar</button>

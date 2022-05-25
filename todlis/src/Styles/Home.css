@@ -137,6 +137,45 @@
     cursor: pointer;
     color: white;
 }
+.list
+{
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 485px;
+    overflow-y: scroll;
+}
+.list::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: transparent;
+    display: none;
+}
+.list::-webkit-scrollbar-thumb
+{
+    background-color: #a431dd;
+}
+.list-item
+{
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    flex-direction: row;
+}
+.task-done-check
+{
+    margin-left: 10px;
+}
+.task-description
+{
+    font-size: 15px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: 10px;
+}
 
 
 .empty-text, .empty-list-text
