@@ -15,12 +15,23 @@ export default function Todos({user, setUser, theme})
 
     function handleCancel()
     {
-
+        setTodo(null);
     }
 
     function handleSave()
-    {
+    {   
+        if(!user.todos[todo.id])
+        {
+            setUser({...user, todos: [...user.todos, todo]});
+        }
+        else
+        {
+            const tTodos = [...user.todos];
+            tTodos[todo.id] = todo;
+            setUser({...user, todos: tTodos});
+        }
 
+        setTodo(null);
     }
 
     return(
@@ -30,7 +41,7 @@ export default function Todos({user, setUser, theme})
                 !todo ?
                 <Fragment>
                     <div className="subview-cards">
-                        <button onClick={() => {setTodo(new Todo(`NovaLista${user.todos.length+1}`));}} type="button" className={`action-card ${theme}-background-c`}>
+                        <button onClick={() => {setTodo(new Todo(`NovaLista${user.todos.length+1}`, "#c34bff", user.todos.length));}} type="button" className={`action-card ${theme}-background-c`}>
                             <span className={`action-icon ${theme}-text`}>+</span>
                             <h4 className={`action-title ${theme}-text`}>Criar Nova Lista</h4>
                         </button>
@@ -43,7 +54,20 @@ export default function Todos({user, setUser, theme})
                     <div className="subview-cards">
                         {
                             user.todos.length > 0 ? 
-                            user.todos.map((l) => <div>TODO LIST</div>)
+                            user.todos.map((l, i) => 
+                            <button onClick={() => {setTodo(user.todos[i]);}} type="text" className="todo-card" key={`todos-${i}`}>
+                                {l.title}
+
+                                {
+                                    /*
+
+                                    OPEN A READONLY PAGE ONCLICK, WITH EDIT BUTTON 
+                                    IF THE TODO IS ALREADY SAVED NOT NEW!
+
+                                     */
+                                }
+
+                            </button>)
                             :
                             <p className={`empty-text ${theme}-text`}>Sem listas para mostrar... Crie uma lista e ela aparecer&aacute; aqui!</p>
                         }

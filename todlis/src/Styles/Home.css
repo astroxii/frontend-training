@@ -117,6 +117,7 @@
     width: 300px;
     margin: auto;
     border-radius: 10px;
+    animation: opacity 0.75s ease-in;
 }
 .edit-title
 {
