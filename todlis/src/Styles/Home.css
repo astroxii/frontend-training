@@ -71,6 +71,12 @@
     font-weight: lighter;
     margin: auto;
 }
+.todo-card
+{
+    width: 250px;
+    padding: 20px 0;
+    cursor: pointer;
+}
 .actions-bar
 {
     position: fixed;

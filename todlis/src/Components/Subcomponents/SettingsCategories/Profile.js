@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from "react";
 
-export default function Profile({user, setUser, username, setUsername, startView, setStartView})
+export default function Profile({user, setUser, username, setUsername, startView, setStartView, theme})
 {
     function edit(btn, field)
     {
@@ -78,9 +78,9 @@ export default function Profile({user, setUser, username, setUsername, startView
             <form className="settings-edit-form">
                 <label className="setup-field-holder">
                     <input onChange={(e) => {handleChange(e.target, username, setUsername);}} 
-                    type="text" placeholder="" value={username} id="username" className="setup-field settings-field has-content"
+                    type="text" placeholder="" value={username} id="username" className={`setup-field settings-field ${theme}-text has-content`}
                     autoComplete="false" autoCorrect="false" readOnly={true} />
-                    <h3 className="setup-field-title">Nome de usu&aacute;rio</h3>
+                    <h3 className={`setup-field-title ${theme}-text ${theme}-background`}>Nome de usu&aacute;rio</h3>
                     <button title="Editar" type="button" onClick={(e) => {edit(e.target, document.getElementById("username"))}}>E</button>
                 </label>
             </form>

@@ -52,26 +52,25 @@
 }
 .setup-field-title
 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: lighter;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
     position: absolute;
-    width: 250px;
+    width: auto;
     padding-left: 10px;
     transform: scale(1);
     transition: all 0.3s ease-in-out;
     cursor: text;
-    text-align: left;
-    color: rgb(82, 82, 82);
+    text-align: center;
+    margin-right: 75px;
 }
 .setup-field:focus ~ .setup-field-title, .has-content ~ .setup-field-title
 {
-    background-color: #f7f7f7;
     transform: scale(0.75);
     padding-left: 0;
-    margin-bottom: 35px;
+    margin-bottom: 37.5px;
     margin-right: 100px;
     width: auto;
     padding: 0 5px;

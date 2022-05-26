@@ -18,7 +18,7 @@ export default function Settings({user, setUser, theme, setTheme})
             }
             {
                 category === "Profile" ?
-                <Profile user={user} setUser={setUser} username={username} setUsername={setUsername} startView={startView} setStartView={setStartView} />
+                <Profile user={user} setUser={setUser} username={username} setUsername={setUsername} startView={startView} setStartView={setStartView} theme={theme} />
                 :
                 <ul className="settings-categ-list">
                     <li><button onClick={() => {setCategory("Profile");}} type="button" className={`settings-categ ${theme}-text`}>Perfil</button></li>

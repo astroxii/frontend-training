@@ -5,6 +5,7 @@ import "../../Styles/Todos.css";
 export default function Todos({user, setUser, theme})
 {
     const [todo, setTodo] = useState(null);
+    const [edit, setEdit] = useState(false);
 
     function handleAdd()
     {
@@ -15,7 +16,14 @@ export default function Todos({user, setUser, theme})
 
     function handleCancel()
     {
-        setTodo(null);
+        if(edit)
+        {
+            setEdit(false);
+        }
+        else
+        {
+            setTodo(null);
+        }
     }
 
     function handleSave()
@@ -30,18 +38,18 @@ export default function Todos({user, setUser, theme})
             tTodos[todo.id] = todo;
             setUser({...user, todos: tTodos});
         }
-
-        setTodo(null);
+        
+        setEdit(false);
     }
 
     return(
         <section className={`subview ${theme}-background`}>
-            <h2 className={`subview-title ${theme}-text`}>Listas de Tarefas{todo ? " - Editar" : null}</h2>
+            <h2 className={`subview-title ${theme}-text`}>Listas de Tarefas{todo && user.todos[todo.id] && !edit ? " - Visualizar" : todo && edit ? " - Editar" : null}</h2>
             {
                 !todo ?
                 <Fragment>
                     <div className="subview-cards">
-                        <button onClick={() => {setTodo(new Todo(`NovaLista${user.todos.length+1}`, "#c34bff", user.todos.length));}} type="button" className={`action-card ${theme}-background-c`}>
+                        <button onClick={() => {setTodo(new Todo(`NovaLista${user.todos.length+1}`, "#c34bff", user.todos.length)); setEdit(true);}} type="button" className={`action-card ${theme}-background-c`}>
                             <span className={`action-icon ${theme}-text`}>+</span>
                             <h4 className={`action-title ${theme}-text`}>Criar Nova Lista</h4>
                         </button>
@@ -57,16 +65,6 @@ export default function Todos({user, setUser, theme})
                             user.todos.map((l, i) => 
                             <button onClick={() => {setTodo(user.todos[i]);}} type="text" className="todo-card" key={`todos-${i}`}>
                                 {l.title}
-
-                                {
-                                    /*
-
-                                    OPEN A READONLY PAGE ONCLICK, WITH EDIT BUTTON 
-                                    IF THE TODO IS ALREADY SAVED NOT NEW!
-
-                                     */
-                                }
-
                             </button>)
                             :
                             <p className={`empty-text ${theme}-text`}>Sem listas para mostrar... Crie uma lista e ela aparecer&aacute; aqui!</p>
@@ -76,7 +74,7 @@ export default function Todos({user, setUser, theme})
                 :
                 <Fragment>
                     <div className={`edit-container ${theme}-background-c`} style={{border: `${todo.color} 3px solid`}}>
-                        <input type="text" maxLength={30} value={`${todo.title}`} onChange={(e) => {setTodo({...todo, title: e.target.value});}} className="edit-title" style={{backgroundColor: `${todo.color}`}} />
+                        <input readOnly={!edit} type="text" maxLength={30} value={`${todo.title}`} onChange={(e) => {setTodo({...todo, title: e.target.value});}} className="edit-title" style={{backgroundColor: `${todo.color}`}} />
                         <ul className="list">
                             {   
                                 todo.content.length > 0 ?
@@ -89,12 +87,25 @@ export default function Todos({user, setUser, theme})
                                 <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
                             }
                         </ul>
-                        <button onClick={() => {handleAdd();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
+                        { 
+                            edit ?
+                            <button onClick={() => {handleAdd();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
+                            :
+                            null
+                        }
                     </div>
-                    <div className="setup-bottom">
-                        <button onClick={() => {handleCancel();}} type="button" className="setup-button">Cancelar</button>
-                        <button onClick={() => {handleSave();}} id="settings-save" type="button" className="setup-button">Salvar</button>
-                    </div>
+                    {
+                        edit ?
+                        <div className="setup-bottom">
+                            <button onClick={() => {handleCancel();}} type="button" className="setup-button">Cancelar</button>
+                            <button onClick={() => {handleSave();}} type="button" className="setup-button">Salvar</button>
+                        </div>
+                        :
+                        <div className="setup-bottom">
+                        <button onClick={() => {handleCancel();}} type="button" className="setup-button">Voltar</button>
+                        <button onClick={() => {setEdit(true);}} type="button" className="setup-button">Editar</button>
+                        </div>
+                    }
                 </Fragment>
             }
         </section>
