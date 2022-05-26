@@ -80,8 +80,9 @@ export default function Todos({user, setUser, theme})
                                 todo.content.length > 0 ?
                                 todo.content.map((t, i) => 
                                 <li className="list-item" key={`task-${i}`}>
-                                    <input type="checkbox" defaultChecked={t.done} onChange={(e) => {/* NOT WORKING FIX */}} className="task-done-check"/>
+                                    <input type="checkbox" defaultChecked={t.done} onChange={(e) => {}} className="task-done-check"/>
                                     <p className={`task-description ${theme}-text`}>{t.description}</p>
+                                    {/* DESCRIPTION IS AN INPUT > FIX < */}
                                 </li>)
                                 :
                                 <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
