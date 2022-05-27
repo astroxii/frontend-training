@@ -120,7 +120,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 300px;
+    width: 350px;
     margin: auto;
     border-radius: 10px;
     animation: opacity 0.75s ease-in;
@@ -178,10 +178,14 @@
 }
 .task-description
 {
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
     margin-right: auto;
     margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 2.5px 0;
+    background-color: transparent;
 }
 
 

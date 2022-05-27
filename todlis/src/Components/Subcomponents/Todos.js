@@ -10,7 +10,7 @@ export default function Todos({user, setUser, theme})
     function handleAdd()
     {
         const item = {description: `Tarefa #${todo.content.length + 1}`, priority: false, done: false};
-
+        
         setTodo({...todo, content: [...todo.content, item]});
     }
 
@@ -19,6 +19,7 @@ export default function Todos({user, setUser, theme})
         if(edit)
         {
             setEdit(false);
+            setTodo(user.todos[todo.id]);
         }
         else
         {
@@ -80,9 +81,8 @@ export default function Todos({user, setUser, theme})
                                 todo.content.length > 0 ?
                                 todo.content.map((t, i) => 
                                 <li className="list-item" key={`task-${i}`}>
-                                    <input type="checkbox" defaultChecked={t.done} onChange={(e) => {}} className="task-done-check"/>
-                                    <p className={`task-description ${theme}-text`}>{t.description}</p>
-                                    {/* DESCRIPTION IS AN INPUT > FIX < */}
+                                    <input type="checkbox" readOnly={!edit} defaultChecked={t.done} onChange={(e) => {}} className="task-done-check" />
+                                    <input id={`tdesc-${i}`} type="text" readOnly={!edit} value={t.description} onChange={(e) => {}} className={`task-description ${theme}-text`} />
                                 </li>)
                                 :
                                 <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
@@ -90,7 +90,8 @@ export default function Todos({user, setUser, theme})
                         </ul>
                         { 
                             edit ?
-                            <button onClick={() => {handleAdd();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
+                            /* FIX ME: FOCUS ADDED TASK!!!!! */
+                            <button onClick={() => {handleAdd(); document.getElementById(`tdesc-${todo.content.length-1}`).focus();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
                             :
                             null
                         }
