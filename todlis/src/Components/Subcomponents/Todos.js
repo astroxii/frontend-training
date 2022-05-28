@@ -27,6 +27,23 @@ export default function Todos({user, setUser, theme})
         }
     }
 
+    function handleDescChange(tn, desc)
+    {
+        const tTasks = [...todo.content];
+        tTasks[tn].description = desc;
+        setTodo({...todo, content: tTasks});
+        /**
+         * PROBLEM: NOT GOING BACK TO UNEDITED VERSION
+         * KEEPS EDIT ON CANCEL
+         * USER.TODOS[I].CONTENT IS BEING UPDATED...
+         */
+    }
+
+    function handleDone()
+    {
+
+    }
+
     function handleSave()
     {   
         if(!user.todos[todo.id])
@@ -81,8 +98,8 @@ export default function Todos({user, setUser, theme})
                                 todo.content.length > 0 ?
                                 todo.content.map((t, i) => 
                                 <li className="list-item" key={`task-${i}`}>
-                                    <input type="checkbox" readOnly={!edit} defaultChecked={t.done} onChange={(e) => {}} className="task-done-check" />
-                                    <input id={`tdesc-${i}`} type="text" readOnly={!edit} value={t.description} onChange={(e) => {}} className={`task-description ${theme}-text`} />
+                                    <input type="checkbox" defaultChecked={t.done} onChange={(e) => {handleDone();}} className="task-done-check" />
+                                    <input type="text" autoFocus readOnly={!edit} value={`${t.description}`} onChange={(e) => {handleDescChange(i, e.target.value);}} className={`task-description ${theme}-text`} />
                                 </li>)
                                 :
                                 <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
@@ -90,8 +107,7 @@ export default function Todos({user, setUser, theme})
                         </ul>
                         { 
                             edit ?
-                            /* FIX ME: FOCUS ADDED TASK!!!!! */
-                            <button onClick={() => {handleAdd(); document.getElementById(`tdesc-${todo.content.length-1}`).focus();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
+                            <button onClick={() => {handleAdd();}} className="add-item-btn" style={{backgroundColor: `${todo.color}`}}>Adicionar Tarefa</button>
                             :
                             null
                         }
