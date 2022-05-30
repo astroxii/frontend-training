@@ -175,11 +175,13 @@
 .task-done-check
 {
     margin-left: 10px;
+    width: 20px;
+    height: 20px;
 }
 .task-description
 {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     margin-right: auto;
     margin-left: 10px;
     border: none;

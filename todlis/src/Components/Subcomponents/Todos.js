@@ -20,8 +20,9 @@ export default function Todos({user, setUser, theme})
         {
             setEdit(false);
 
-            if(user.todos.includes(todo.id))
+            if(user.todos[todo.id])
             {
+                console.log(todo.content[0].description, user.todos[todo.id].content[0].description);
                 setTodo({...user.todos[todo.id]});
             }
             else
@@ -67,6 +68,17 @@ export default function Todos({user, setUser, theme})
         }
         
         setEdit(false);
+    }
+
+    function handleDeleteList()
+    {
+        const tTodos = [...user.todos];
+        tTodos.splice(todo.id);
+        setUser({...user, todos: [...tTodos]});
+        setEdit(false);
+        setTodo(null);
+
+        // SHOW "TEM CERTEZA?" MSG BOX !!!
     }
 
     return(
@@ -128,6 +140,7 @@ export default function Todos({user, setUser, theme})
                     {
                         edit ?
                         <div className="setup-bottom">
+                            <button onClick={() => {handleDeleteList();}} type="button" className="delete-button">Deletar Lista</button>
                             <button onClick={() => {handleCancel();}} type="button" className="setup-button">Cancelar</button>
                             <button onClick={() => {handleSave();}} type="button" className="setup-button">Salvar</button>
                         </div>
