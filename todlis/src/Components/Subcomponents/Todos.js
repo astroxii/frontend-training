@@ -9,9 +9,9 @@ export default function Todos({user, setUser, theme})
 
     function handleAdd()
     {
-        const item = {description: `Tarefa #${todo.content.length + 1}`, priority: false, done: false};
+        const task = {description: `Tarefa #${todo.content.length + 1}`, priority: false, done: false};
         
-        setTodo({...todo, content: [...todo.content, item]});
+        setTodo({...todo, content: [...todo.content, {...task}]});
     }
 
     function handleCancel()
@@ -19,19 +19,28 @@ export default function Todos({user, setUser, theme})
         if(edit)
         {
             setEdit(false);
-            setTodo(user.todos[todo.id]);
+
+            if(user.todos.includes(todo.id))
+            {
+                setTodo({...user.todos[todo.id]});
+            }
+            else
+            {
+                setTodo(null);
+            }
         }
         else
         {
             setTodo(null);
         }
+
     }
 
     function handleDescChange(tn, desc)
     {
         const tTasks = [...todo.content];
-        tTasks[tn].description = desc;
-        setTodo({...todo, content: tTasks});
+        tTasks[tn].description = desc; // PROBLEM HERE: ARRAY REFERENCE USER
+        setTodo({...todo, content: [...tTasks]});
         /**
          * PROBLEM: NOT GOING BACK TO UNEDITED VERSION
          * KEEPS EDIT ON CANCEL
@@ -48,13 +57,13 @@ export default function Todos({user, setUser, theme})
     {   
         if(!user.todos[todo.id])
         {
-            setUser({...user, todos: [...user.todos, todo]});
+            setUser({...user, todos: [...user.todos, {...todo}]});
         }
         else
         {
             const tTodos = [...user.todos];
-            tTodos[todo.id] = todo;
-            setUser({...user, todos: tTodos});
+            tTodos[todo.id] = {...todo};
+            setUser({...user, todos: [...tTodos]});
         }
         
         setEdit(false);
@@ -81,7 +90,7 @@ export default function Todos({user, setUser, theme})
                         {
                             user.todos.length > 0 ? 
                             user.todos.map((l, i) => 
-                            <button onClick={() => {setTodo(user.todos[i]);}} type="text" className="todo-card" key={`todos-${i}`}>
+                            <button onClick={() => {setTodo({...user.todos[i]});}} type="text" className="todo-card" key={`todos-${i}`}>
                                 {l.title}
                             </button>)
                             :
@@ -92,14 +101,18 @@ export default function Todos({user, setUser, theme})
                 :
                 <Fragment>
                     <div className={`edit-container ${theme}-background-c`} style={{border: `${todo.color} 3px solid`}}>
-                        <input readOnly={!edit} type="text" maxLength={30} value={`${todo.title}`} onChange={(e) => {setTodo({...todo, title: e.target.value});}} className="edit-title" style={{backgroundColor: `${todo.color}`}} />
+                        <input readOnly={!edit} type="text" maxLength={30} value={`${todo.title}`} 
+                        onChange={(e) => {setTodo({...todo, title: `${e.target.value}`});}} 
+                        className="edit-title" style={{backgroundColor: `${todo.color}`}} />
                         <ul className="list">
                             {   
                                 todo.content.length > 0 ?
                                 todo.content.map((t, i) => 
                                 <li className="list-item" key={`task-${i}`}>
                                     <input type="checkbox" defaultChecked={t.done} onChange={(e) => {handleDone();}} className="task-done-check" />
-                                    <input type="text" autoFocus readOnly={!edit} value={`${t.description}`} onChange={(e) => {handleDescChange(i, e.target.value);}} className={`task-description ${theme}-text`} />
+                                    <input type="text" autoFocus readOnly={!edit} value={`${t.description}`} 
+                                    onChange={(e) => {handleDescChange(i, e.target.value);}} 
+                                    className={`task-description ${theme}-text`} />
                                 </li>)
                                 :
                                 <p className={`empty-list-text ${theme}-text`}>Lista vazia. Adicione tarefas pelo bot&atilde;o abaixo!</p>
