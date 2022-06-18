@@ -2,4 +2,4 @@
 
 Just some front-end training projects.
 
-astroxii @ 2022
+_- astroxii @ 2022_
