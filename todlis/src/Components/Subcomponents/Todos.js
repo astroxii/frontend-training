@@ -40,13 +40,9 @@ export default function Todos({user, setUser, theme})
     function handleDescChange(tn, desc)
     {
         const tTasks = [...todo.content];
-        tTasks[tn].description = desc; // PROBLEM HERE: ARRAY REFERENCE USER
+        tTasks[tn].description = desc;
         setTodo({...todo, content: [...tTasks]});
-        /**
-         * PROBLEM: NOT GOING BACK TO UNEDITED VERSION
-         * KEEPS EDIT ON CANCEL
-         * USER.TODOS[I].CONTENT IS BEING UPDATED...
-         */
+        /*PROBLEM*/
     }
 
     function handleDone()
@@ -78,7 +74,7 @@ export default function Todos({user, setUser, theme})
         setEdit(false);
         setTodo(null);
 
-        // SHOW "TEM CERTEZA?" MSG BOX !!!
+        // Confirm box show here
     }
 
     return(
