@@ -36,7 +36,7 @@ export default function Profile({user, setUser, username, setUsername, startView
                 {
                     const tUser = {};
                     Object.assign(tUser, user);
-                    tUser[f.id] = f.value; // needs to get deep props... not working for preferences
+                    tUser[f.id] = f.value; // Problem
                     setUser(tUser);
                 }
                 else
