@@ -1,0 +1,91 @@
+.product-slider
+{
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 0;
+}
+
+.cards
+{
+    width: 95%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    gap: 30px;
+}
+
+.slider-btn
+{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px 7.5px 20px 7.5px;
+    cursor: pointer;
+    background-color: rgba(100, 100, 100, 0.1);
+    font-size: 50px;
+    font-weight: normal;
+    color: white;
+    transition: background-color 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.slider-btn:hover
+{
+    background-color: rgba(100, 100, 100, 0.2);
+}
+
+.pagination
+{
+    width: 100%;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    gap: 15px;
+    padding: 15px 0;
+}
+.dot
+{
+    background-color: rgba(100, 100, 100, 0.3);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    transition: 0.2s ease-in-out;
+}
+.dot:hover
+{
+    background-color: rgba(116, 164, 253, 0.4);
+}
+.dot.dot-active
+{
+    background-color: cornflowerblue;
+}
+
+@media screen and (min-width: 0px) and (max-width: 900px)
+{
+    .cards
+    {
+        gap: 7.5px;
+    }
+    .slider-btn
+    {
+        font-size: 30px;
+        padding: 12.5px 7.5px 20px 7.5px;
+    }
+}
+@media screen and (min-width: 0px) and (max-width: 800px)
+{
+    .pagination
+    {
+        display: none;
+    }
+}

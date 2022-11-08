@@ -1,0 +1,84 @@
+.card
+{
+    width: 60%;
+    min-width: 275px;
+    max-width: 1000px;
+    height: 40vh;
+    height: fit-content;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.card .card-img
+{
+    width: 50%;
+    height: auto;
+    max-height: 300px;
+    margin: auto;
+    padding: 10px 0;
+    transition: transform 0.2s ease-in-out;
+}
+.card .card-info
+{
+    height: 10vh;
+    width: 100%;
+    background: rgb(236, 236, 236);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.card .card-title
+{
+    font-size: 18px;
+    text-align: center;
+}
+.card .card-desc
+{
+    color: rgb(83, 83, 83);
+    width: fit-content;
+    max-width: 98%;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.card .hover-actions
+{
+    background: rgb(236, 236, 236);
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px 0;
+}
+.card .hover-actions .hover-btn
+{
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+.card .hover-actions .hover-btn img
+{
+    height: 75%;
+    width: auto;
+    opacity: 0.5;
+    transition: 0.2s ease-in-out;
+}
+
+.card:hover
+{
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.6);
+}
+.card:hover > .hover-actions .hover-btn img
+{
+    opacity: 1;
+}

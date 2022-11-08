@@ -1,0 +1,161 @@
+.scrldwn-btn
+{
+    width: fit-content;
+    height: fit-content;
+    margin: 15vh auto 0 auto;
+    display: block;
+    padding: 10px;
+    background-color: rgb(0, 170, 212);
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+    transition: padding 0.2s ease-in-out;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+    transition: 0.2s ease-in-out;
+}
+.scrldwn-btn:hover
+{
+    background-color: rgb(34, 155, 185);
+}
+
+.content-section
+{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    margin: auto;
+}
+.content-section:first-of-type
+{
+    margin-top: 15vh;
+}
+
+.entrance
+{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: url(../images/adventure_awaits.jpg);
+    height: 90vh;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: auto;
+}
+.entrance .left
+{
+    margin-right: auto;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    text-align: center;
+    width: 30%;
+    min-width: 300px;
+}
+.entrance .left .title, .entrance .left .sub
+{
+    color: white;
+}
+.entrance .left .title
+{
+    font-size: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin: 0 auto 10px auto;
+}
+.entrance .left .sub
+{
+    font-size: 18px;
+    max-width: 99%;
+}
+.entrance button
+{
+    margin: 25px auto 0 auto;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    background: rgba(0, 170, 212, 0.3);
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 50px;
+    width: 150px;
+}
+.entrance button::after
+{
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 20px;
+    margin-top: 65px;
+    background: rgba(0, 170, 212, 0.8);
+    clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+    transition: transform 0.2s ease-in-out;
+    transform-origin: top;
+    transform: scale(0.5);
+}
+.entrance button:hover::after
+{
+    transform: scale(1);
+}
+
+.rec-products
+{
+    width: 100%;
+    min-height: 35vh;
+    margin-top: 10vh;
+    height: fit-content;
+    background: rgb(220, 220, 220);
+    flex-direction: column;
+    align-items: center;
+}
+.rec-products .title
+{
+    width: fit-content;
+    letter-spacing: 3px;
+    font-size: 24px;
+    margin: 5px auto 15px auto;
+}
+
+.plans
+{
+    background: rgb(236,236,236);
+    display: flex;
+    flex-direction: column;
+}
+.plans .cards
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.home-end
+{
+    height: 90vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-attachment: fixed;
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px)
+{
+    .entrance .left
+    {
+        width: 100%;
+    }
+}

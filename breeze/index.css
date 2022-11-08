@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Comfortaa";
+    scroll-behavior: smooth;
+}
+
+::selection
+{
+    background-color: rgba(36, 207, 150, 0.5);
+}
+::-webkit-scrollbar
+{
+    display: none;
+}
+
+html, body
+{
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    background-color: rgb(235, 235, 235);
+}
+
+.cover-image
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-image: url(./images/cover.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.cover-image-title
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5vw;
+    font-size: 15vw;
+    font-weight: bolder;
+    color: white;
+    margin-top: auto;
+}
+.cover-image-title img
+{
+    width: auto;
+    height: 10vw;
+}
+.cover-image-text
+{
+    font-size: 5vw;
+    font-weight: lighter;
+    color: rgb(194, 194, 194);
+}
+.cover-image-scroll-btn
+{
+    display: flex;
+    margin: auto;
+    background-color: azure;
+}
+.cover-image-scroll-btn::after
+{
+    content: "";
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    margin-left: 30px;
+    background-color: aquamarine;
+    transform: rotate(45deg);
+    border-top-right-radius: 12.5px;
+    transition: 0.2s ease-in-out;
+}
+.cover-image-scroll-btn::before
+{
+    content: "";
+    width: 10px;
+    height: 50px;
+    position: absolute;
+    margin-right: 30px;
+    background-color: aquamarine;
+    transform: rotate(-45deg);
+    border-top-left-radius: 12.5px;
+    transition: 0.2s ease-in-out;
+}
+.cover-image-scroll-btn:hover::after, .cover-image-scroll-btn:hover::before
+{
+    height: 55px;
+}
+.cover-image-scroll-btn:hover::after
+{
+    margin-left: 32.5px;
+}
+.cover-image-scroll-btn:hover::before
+{
+    margin-right: 32.5px;
+}
+
+header
+{
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(36, 207, 150);
+    position: sticky;
+    top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.home-link
+{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-right: auto;
+    margin-left: 15px;
+    font-size: 60px;
+    color: rgb(255, 255, 255);
+}
+.home-link img
+{
+    width: auto;
+    height: 45px;
+}
+.h-nav
+{
+    margin-left: auto;
+    margin-right: 15px;
+}
+.nav-list
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.nav-link
+{
+    color: white;
+    font-size: 18px;
+    font-weight: lighter;
+    background-color: rgb(32, 180, 131);
+    padding: 15px 12.5px;
+    border-radius: 30px;
+    transition: 0.2s ease-in-out;
+}
+.nav-link:hover
+{
+    background-color: rgb(16, 167, 116);
+}
+
+.section
+{
+    width: 100%;
+    padding-top: 11vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.section-title
+{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    font-size: 40px;
+    text-align: center;
+}
+.section-title::after
+{
+    content: "";
+    height: 5px;
+    width: 40%;
+    background-color: rgb(17, 170, 119);
+}
+
+
+
+.breeze
+{
+    font-family: "Dancing Script";
+}
+a, button, li, ul
+{
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+}
