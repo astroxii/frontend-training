@@ -1,5 +1,6 @@
 # Front-End Training Projects
 
+[![version](https://img.shields.io/badge/version-v1.0.0-orange.svg)](#)
 [![status](https://img.shields.io/badge/status-stalled-red.svg)](#)
 [![license](https://img.shields.io/github/license/astroxii/frontend-training)](https://github.com/astroxii/frontend-training/blob/main/LICENSE)
 
